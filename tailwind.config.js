@@ -7,7 +7,10 @@ export default {
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
+        './resources/**/*.blade.php',
         './resources/js/**/*.jsx',
+        './resources/js/**/*.js',
+        './node_modules/flowbite/**/*.js', //idont think this is right dir...
     ],
 
     theme: {
@@ -18,5 +21,7 @@ export default {
         },
     },
 
-    plugins: [forms],
+    plugins: [forms,
+        'flowbite/plugin'
+    ],
 };
