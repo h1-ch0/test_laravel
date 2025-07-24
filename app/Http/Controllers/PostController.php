@@ -28,7 +28,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        //로그인 하지 않은 자를 로그인 화면에 던짐
+        if (!auth()->check()) {
+            return to_route('login');
+        }
         return view('posts.create'); //resoures/views/posts/create
     }
 
@@ -63,11 +66,6 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
     */
-    //일단 데이터가 없으니까 화면만 나오도록 아래와 같이 설정
-    // public function edit(Post $post)
-    // {
-    //     //
-    // }
         public function edit(Post $post)
         {   
             return view('posts.edit', compact('post'));
