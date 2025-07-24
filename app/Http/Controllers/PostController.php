@@ -41,10 +41,20 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        Post::create([
-            'title' => $request->title,
-            'content' => $request->content,
+        // Post::create([
+        //     'title' => $request->title,
+        //     'content' => $request->content,
+        // ]);
+        
+        $validated = $request->validate([
+            'title' => ['required','min:3',"max:200"],
+            'content'=>['required','min:5'],
         ]);
+
+        $validated['user_id'] = auth()->id(); // 현재 로그인한 사용자의 ID를 추가
+        Post::create($validated);
+        // auth()->user()->posts()->create($validated);
+
         return to_route('posts.index');
     }
 
