@@ -83,8 +83,12 @@ Route::middleware('auth')->group(function(){
 
 });
 
-Route::get('/posts',[PostController::class,'index'])->name('posts.index');
-Route::get('/posts/{post}',[PostController::class,'show'])->name('posts.show');
+Route::get('/posts',[PostController::class,'index'])
+    // ->middleware('custom-post-mid')
+    ->name('posts.index');
+Route::get('/posts/{post}',[PostController::class,'show'])
+    // ->middleware('custom-post-mid') // Custom middleware applied
+    ->name('posts.show');
 
 Route::middleware('guest')->group(function(){
     Route::get('/register',[RegisterUserController::class,'register'])->name('register');
