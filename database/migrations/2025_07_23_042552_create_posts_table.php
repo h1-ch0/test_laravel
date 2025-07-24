@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+            // $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
 
             // Foreign key to the users table 글 작성자에게 종속
             $table->string('title');

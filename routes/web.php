@@ -57,6 +57,7 @@ Route::post('/', function (Request $request) {
 });
 
 Route::put('/{id}', function (Request $request, $id) {
+    dd($request->all());
     return 'put route = '. $id;
 });
 Route::delete('/{id}', function (Request $request, $id) {
