@@ -14,23 +14,32 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create();
-        TestLists::factory(10)->create();
-        // User::factory(10)->create();
-            // [
-            // 'name' => 'Test User',
-            // 'email' => 'test@example.com'
-// ]);  
-            // TestLists::create([
-            //     'subject' => 'Good Morning',
-            //     'email' => 'good@mail.com',
-            //     'content' =>'Good Content Life is too short',
-            // ]);            
-            // TestLists::create([
-            //     'subject' => 'Good afternoon',
-            //     'email' => 'after@mail.com',
-            //     'content' =>'Bad Content Art is too long',
-            // ]);
-        
+
+        User::factory()->create([
+        "name"=> "Admin",
+        "email"=> "admin@example.com",
+        "is_admin" => true,
+        // 'email_verified_at' => null,
+        // 'remember_token' => null,
+        'password' => bcrypt('password'), // 비밀번호는 bcrypt로 해시 처리
+        ]);
+
+        User::factory()->create([
+        "name"=> "Test User1",
+        "email"=> "test1@example.com",
+        // "is_admin" => true,
+        // 'email_verified_at' => null,
+        // 'remember_token' => null,
+        'password' => bcrypt('password'), // 비밀번호는 bcrypt로 해시 처리
+        ]);
+
+        User::factory()->create([
+        "name"=> "Test User2",
+        "email"=> "test2@example.com",
+        // "is_admin" => true,
+        // 'email_verified_at' => null,
+        // 'remember_token' => null,
+        'password' => bcrypt('password'), // 비밀번호는 bcrypt로 해시 처리
+        ]);
     }
 }

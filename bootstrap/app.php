@@ -19,6 +19,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
             'guest' => \Illuminate\Auth\Middleware\RedirectIfAuthenticated::class,
             'custom-post-mid' => \App\Http\Middleware\CustomPostMiddleware::class,            
+            'can' => \Illuminate\Auth\Middleware\Authorize::class,
         ]);
         //
     })

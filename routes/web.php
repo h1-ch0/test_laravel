@@ -77,12 +77,32 @@ Route::delete('/{id}', function (Request $request, $id) {
 Route::middleware('auth')->group(function(){
     Route::get('/posts/create',[PostController::class,'create'])->name('posts.create');
     Route::post('/posts',[PostController::class,'store'])->name('posts.store');
-    Route::get('/posts/{post}/edit',[PostController::class,'edit'])->name('posts.edit');
-    Route::put('/posts/{post}',[PostController::class,'update'])->name('posts.update');
-    Route::delete('/posts/{post}',[PostController::class,'destroy'])->name('posts.destroy');
+    Route::get('/posts/{post}/edit',[PostController::class,'edit'])
+        // ->middleware(['can', 'can:update,post']) 왜 안되는지 모르겠다.... 그냥 PostController에서 직접 권한 확인
+        // ->middleware('can:update,post')
+        ->name('posts.edit');
+    Route::put('/posts/{post}',[PostController::class,'update'])->name('posts.update'); 
+    Route::delete('/posts/{post}',[PostController::class,'destroy'])
+        ->name('posts.destroy');
     Route::post('/logout', [LoginUserController::class,'logout'])->name('logout');
-
+    // Route::get('/admin', function(){
+    //     return view('test'); // Admin page view
+    // })
+    // ->middleware('can:is-admin') 
+    // ->name('admin');
+    Route::get('/admin', function () {
+    return view('test');
+})->middleware('can:is-admin');
 });
+
+
+// Route::get('/admin',function(){
+//     if (auth()->user() && auth()->user()->is_admin) {
+//         return view('test'); // Admin page view
+//     }
+//     abort(403, 'Login to Admin.');
+//     // return view('test');
+// });
 
 Route::get('/posts',[PostController::class,'index'])
     // ->middleware('custom-post-mid')

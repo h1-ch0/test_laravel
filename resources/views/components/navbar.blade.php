@@ -17,16 +17,19 @@
         <x-navbar-link href="/"      :active="request()->is('/')">Home</x-navbar-link>
         <x-navbar-link href="/lists" :active="request()->is('lists')">Lists</x-navbar-link>
         <x-navbar-link href="/posts" :active="request()->is('posts')">Posts</x-navbar-link>
+
         @guest
         <x-navbar-link href="{{ route('register') }}" :active="request()->is('register')">Register</x-navbar-link>
         <x-navbar-link href="{{ route('login') }}" :active="request()->is('login')">Login</x-navbar-link>
+        
         @endguest
         
         @auth
         <form method="POST" action="{{ route('logout') }}">
           @csrf
-          <x-navbar-link href="" :active="false" onclick="event.preventDefault(); this.closest('form').submit();">Logout</x-navbar-link>
+          <x-navbar-link href="" :active="false" onclick="event.preventDefault(); this.closest('form').submit();">Logout ({{ explode('@',auth()->user()->email)[0] }})</x-navbar-link>
         </form>
+
         @endauth
           
         
