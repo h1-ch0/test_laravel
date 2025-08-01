@@ -11,13 +11,14 @@ use App\Http\Controllers\LoginUserController;
 use App\Http\Controllers\RegisterUserController;
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
+    return Inertia::render('Welcome', [ //API없이 SPA방식으로 가져올 수 있는 Inertia?
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
 
 
 Route::get('/dashboard', function () {
@@ -38,7 +39,7 @@ Route::get('/lists', function () {
         'heading' => 'News',
         'lists' => TestLists::all()
     ]);
-});
+})->name('lists');
 
 Route::get('/lists/{id}', function ($id) {
     return view('list', [
@@ -85,24 +86,13 @@ Route::middleware('auth')->group(function(){
     Route::delete('/posts/{post}',[PostController::class,'destroy'])
         ->name('posts.destroy');
     Route::post('/logout', [LoginUserController::class,'logout'])->name('logout');
-    // Route::get('/admin', function(){
-    //     return view('test'); // Admin page view
-    // })
-    // ->middleware('can:is-admin') 
-    // ->name('admin');
     Route::get('/admin', function () {
-    return view('test');
-})->middleware('can:is-admin');
+        return view('auth.admin'); // Admin page view
+    })->middleware('is-admin')->name('admin'); // Use the 'is-admin' middleware to protect this route
+
 });
 
 
-// Route::get('/admin',function(){
-//     if (auth()->user() && auth()->user()->is_admin) {
-//         return view('test'); // Admin page view
-//     }
-//     abort(403, 'Login to Admin.');
-//     // return view('test');
-// });
 
 Route::get('/posts',[PostController::class,'index'])
     // ->middleware('custom-post-mid')

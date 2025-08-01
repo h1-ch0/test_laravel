@@ -10,7 +10,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-
+    <x-errorMessage></x-errorMessage>
     <x-navbar></x-navbar> 
     <div class = "max-w-6xl mx-auto">
         {{ $slot }}

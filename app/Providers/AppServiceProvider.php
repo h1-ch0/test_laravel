@@ -27,13 +27,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
         
-        Gate::define('is-admin', function (User $user) {
-            // \Log::info('is-admin Gate Check', ['user_id' => $user->id, 'is_admin' => $user->is_admin]);
-            // return $user->is_admin === 1;
-        // return $user->is_admin;
-            return (bool) $user->is_admin==1;
+        // Gate::define('is-admin', function (User $user) {
+        //     // \Log::info('is-admin Gate Check', ['user_id' => $user->id, 'is_admin' => $user->is_admin]);
+        //     // return $user->is_admin === 1;
+        // // return $user->is_admin;
+        //     return (bool) $user->is_admin==1;
 
-        });
+        // });
     }
 }
 

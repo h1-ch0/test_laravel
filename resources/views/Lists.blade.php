@@ -1,6 +1,5 @@
 <x-layout>
-
-    @extends('layout')
+    @extends('components.list-layout')
     
     @section('content')
     

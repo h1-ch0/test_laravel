@@ -20,6 +20,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'guest' => \Illuminate\Auth\Middleware\RedirectIfAuthenticated::class,
             'custom-post-mid' => \App\Http\Middleware\CustomPostMiddleware::class,            
             'can' => \Illuminate\Auth\Middleware\Authorize::class,
+            'is-admin' => \App\Http\Middleware\IsAdmin::class,
         ]);
         //
     })
