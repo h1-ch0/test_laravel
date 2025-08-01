@@ -19,9 +19,7 @@
     
   </main>
   
-  <footer>
-    @include('inc.footer')
-  </footer>
+
 </body>
 {{-- <h1>components.list-layout.blade.php End</h1> --}}
 {{-- </html> --}}

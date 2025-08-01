@@ -28,7 +28,7 @@ class IsAdmin
         // }
         if (!auth()->user()->is_admin) {
             // If the user is not an admin redirect or abort
-                return redirect()->route('lists')->with('error', 'You do not have admin access.');
+                return redirect()->route('lists')->with('error', 'error : You do not have admin access.');
             
         }
 

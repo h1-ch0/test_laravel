@@ -26,6 +26,9 @@
         <h1 class="text-3xl text-indigo-700 pt-5">{{$post ->title}}</h1>
         <main class ="max-w-6xl mx-auto mt-5 lg:mt-6 p-6">
             <p class="text-gray-700 mb-3">{{$post ->content}}</p>
+            @if ($post->uploadedFiles!==null)
+            <img src="{{ asset('storage/' . $post->uploadedFiles) }}" alt="Uploaded Image" class="w-full h-auto rounded-lg mb-5">
+            @endif
         </main>
     </div>
     

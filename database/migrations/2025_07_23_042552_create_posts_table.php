@@ -18,6 +18,7 @@ return new class extends Migration
             // Foreign key to the users table 글 작성자에게 종속
             $table->string('title');
             $table->text('content');
+            $table->string('uploadedFiles')->nullable();
             $table->timestamps();
         });
     }

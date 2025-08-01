@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Post;
 use App\Models\TestLists;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -41,5 +42,7 @@ class DatabaseSeeder extends Seeder
         // 'remember_token' => null,
         'password' => bcrypt('password'), // 비밀번호는 bcrypt로 해시 처리
         ]);
+
+
     }
 }

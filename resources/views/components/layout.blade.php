@@ -10,13 +10,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <x-errorMessage></x-errorMessage>
+    <x-FlashMessage></x-FlashMessage>
+    {{-- <x-errorMessage></x-errorMessage> --}} {{-- IGNORE --}}
     <x-navbar></x-navbar> 
     <div class = "max-w-6xl mx-auto">
         {{ $slot }}
     </div>
     
 </body>
+  <footer class="bg-gray-800 text-white py-4 mt-8 position: absolute bottom-0 w-full">
+    @include('inc.footer')
+  </footer>
 </html>
 
 </div>
