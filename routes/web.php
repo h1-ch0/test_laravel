@@ -10,15 +10,20 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LoginUserController;
 use App\Http\Controllers\RegisterUserController;
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [ //API없이 SPA방식으로 가져올 수 있는 Inertia?
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [ //API없이 SPA방식으로 가져올 수 있는 Inertia?
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
 
+
+Route::get('/', function () {
+    return view('test');
+
+});
 
 
 Route::get('/dashboard', function () {
