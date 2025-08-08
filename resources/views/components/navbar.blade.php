@@ -17,7 +17,7 @@
         <x-navbar-link href="/"      :active="request()->is('/')">Home</x-navbar-link>
         <x-navbar-link href="/lists" :active="request()->is('lists')">Lists</x-navbar-link>
         <x-navbar-link href="/posts" :active="request()->is('posts')">Posts</x-navbar-link>
-        <x-navbar-link href="/" :active="request()->is('/')">Videos</x-navbar-link>
+        <x-navbar-link href="/streams" :active="request()->is('/streams')">Videos</x-navbar-link>
 
         @guest
         <x-navbar-link href="{{ route('register') }}" :active="request()->is('register')">Register</x-navbar-link>

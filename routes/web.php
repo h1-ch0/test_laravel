@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StreamsController;
 use App\Http\Controllers\LoginUserController;
 use App\Http\Controllers\RegisterUserController;
 
@@ -21,7 +22,7 @@ use App\Http\Controllers\RegisterUserController;
 
 
 Route::get('/', function () {
-    return view('videoTest');
+    return view('test');
 
 });
 
@@ -91,20 +92,39 @@ Route::middleware('auth')->group(function(){
     Route::delete('/posts/{post}',[PostController::class,'destroy'])
         ->name('posts.destroy');
     Route::post('/logout', [LoginUserController::class,'logout'])->name('logout');
+    // Streams routes
+    Route::get('/streams/create', [StreamsController::class, 'create'])->name('streams.create');
+    Route::post('/streams',[StreamsController::class,'store'])->name('streams.store');
+    Route::get('/streams/{streams}/edit',[StreamsController::class,'edit'])
+        ->name('streams.edit');
+    Route::put('/streams/{streams}',[StreamsController::class,'update'])->name('streams.update'); 
+    Route::delete('/streams/{streams}',[StreamsController::class,'destroy'])
+        ->name('streams.destroy');
+    // Admin route
     Route::get('/admin', function () {
         return view('auth.admin'); // Admin page view
     })->middleware('is-admin')->name('admin'); // Use the 'is-admin' middleware to protect this route
 
 });
 
+// Route::get('/streams/create', [StreamsController::class, 'create']);
+// Route::get('/streams/create', [StreamsController::class, 'create']);
 
 
+
+// Streams
+Route::get('/streams', [StreamsController::class, 'index'])
+    ->name('streams.index');
+Route::get('/streams/{streams}', [StreamsController::class, 'show'])
+    ->name('streams.show');
+//posts
 Route::get('/posts',[PostController::class,'index'])
     // ->middleware('custom-post-mid')
     ->name('posts.index');
 Route::get('/posts/{post}',[PostController::class,'show'])
     // ->middleware('custom-post-mid') // Custom middleware applied
     ->name('posts.show');
+
 
 Route::middleware('guest')->group(function(){
     Route::get('/register',[RegisterUserController::class,'register'])->name('register');
