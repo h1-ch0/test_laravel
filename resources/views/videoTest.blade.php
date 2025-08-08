@@ -1,16 +1,5 @@
-{{-- <x-layout>
-    <h1>For test Only</h1>
-    <h1>now on video embedding test..</h1>
-    @section('video')
-     여기에 플레이어가 오도록
-     
-    @endsection
-</x-layout> --}}
+<x-layout>  
 
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
     <title>HLS Streaming TEST</title>
 
     <!-- Vite 또는 Mix에서 컴파일된 CSS -->
@@ -23,8 +12,8 @@
     <!-- Video.js 기본 CSS -->
     {{-- <link href="https://unpkg.com/video.js@7/dist/video-js.min.css" rel="stylesheet"> --}}
     {{-- <link href="{{ asset('css/video-js.css') }}" rel="stylesheet"> --}}
-</head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+<section class="text-center mx-auto">video title?</section>
+<section class="bg-gray-100 flex items-center justify-center ">
 
     <div class="w-full max-w-3xl mx-auto">
         <video
@@ -69,5 +58,5 @@
             });
         });
     </script>
-</body>
-</html>
+</section>
+</x-layout>
