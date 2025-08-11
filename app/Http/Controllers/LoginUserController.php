@@ -47,6 +47,6 @@ class LoginUserController extends Controller
         Auth::guard('web')->logout();
         $request->session()->invalidate(); //session_destroy();
         $request->session()->regenerateToken(); //csrf토큰 재생성
-        return to_route('posts.index');
+        return to_route('dashboard');
     }
 }

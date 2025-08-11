@@ -9,7 +9,7 @@
     <!-- Video.js 기본 CSS -->
     {{-- <link href="https://unpkg.com/video.js@7/dist/video-js.min.css" rel="stylesheet"> --}}
     {{-- <link href="{{ asset('css/video-js.css') }}" rel="stylesheet"> --}}
-<section class="bg-gray-100 flex items-center justify-center">
+<section class="bg-gray-100 flex items-center justify-center mt-10">
 
     <div class="w-full max-w-3xl mx-auto">
         <video
