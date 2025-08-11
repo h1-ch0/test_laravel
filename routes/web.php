@@ -22,7 +22,7 @@ use App\Http\Controllers\RegisterUserController;
 
 
 Route::get('/', function () {
-    return view('test');
+    return view('welcome');
 
 });
 
