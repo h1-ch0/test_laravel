@@ -22,7 +22,7 @@ use App\Http\Controllers\RegisterUserController;
 
 
 Route::get('/', function () {
-    return view('test');
+    return view('crawlingview');
 
 });
 
@@ -119,6 +119,15 @@ Route::get('/streams', [StreamsController::class, 'index'])
     ->name('streams.index');
 Route::get('/streams/{streams}', [StreamsController::class, 'show'])
     ->name('streams.show');
+// Vods
+// Route::get('/vods', [StreamsController::class, 'index'])
+    // ->name('vods.index');
+// Route::get('/vods/{vods}', [StreamsController::class, 'show'])
+    // ->name('vods.show'); 
+Route::get('/vods', function () {
+    return view('vods.index');
+
+})->name('vods.index');
 //posts
 Route::get('/posts',[PostController::class,'index'])
     // ->middleware('custom-post-mid')

@@ -99,7 +99,7 @@
 
                 </li>                
                 <li class="relative group has-submenu">
-                    <a href="{{ route('streams.index') }}" class="text-gray-100 dark:text-white hover:underline">Streams<kbd class="inline-flex items-center px-2 py-1.5 text-gray-100  dark:bg-gray-600 dark:text-gray-100 dark:border-gray-500">
+                    <a href="{{ route('vods.index') }}" class="text-gray-100 dark:text-white hover:underline">Vods<kbd class="inline-flex items-center px-2 py-1.5 text-gray-100  dark:bg-gray-600 dark:text-gray-100 dark:border-gray-500">
                       <svg class="w-2 h-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 10">
                       <path d="M15.434 1.235A2 2 0 0 0 13.586 0H2.414A2 2 0 0 0 1 3.414L6.586 9a2 2 0 0 0 2.828 0L15 3.414a2 2 0 0 0 .434-2.179Z"/>
                       </svg>
@@ -116,6 +116,20 @@
                           <li><a href="#" class="block px-4 py-2 hover:bg-gray-700 whitespace-nowrap">Add station</a></li>
                           <li><a href="#" class="block px-4 py-2 hover:bg-gray-700 whitespace-nowrap">Manage stations</a></li>
                         </div>
+                    </ul>
+
+                </li>    
+                </li>                
+                <li class="relative group has-submenu">
+                    <a href="{{ route('streams.index') }}" class="text-gray-100 dark:text-white hover:underline">Streams<kbd class="inline-flex items-center px-2 py-1.5 text-gray-100  dark:bg-gray-600 dark:text-gray-100 dark:border-gray-500">
+                      <svg class="w-2 h-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 10">
+                      <path d="M15.434 1.235A2 2 0 0 0 13.586 0H2.414A2 2 0 0 0 1 3.414L6.586 9a2 2 0 0 0 2.828 0L15 3.414a2 2 0 0 0 .434-2.179Z"/>
+                      </svg>
+                      </kbd></a>
+                    <ul class="absolute z-50 left-0 mt-2 w-40 bg-gray-800 text-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                        <li><a href="" {{route('streams.create')}} class="block px-4 py-2 hover:bg-gray-700 whitespace-nowrap">Add Streams</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-700 whitespace-nowrap">Manage Streams</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-700 whitespace-nowrap">Create Chnnel</a></li>
                     </ul>
 
                 </li>                

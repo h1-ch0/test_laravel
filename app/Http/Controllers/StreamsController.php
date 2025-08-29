@@ -43,7 +43,7 @@ class StreamsController extends Controller
             'url' => ['sometimes', 'url'],
         ]);
         
-        $validated['user_id'] = auth()->id(); // 현재 로그인한 사용자의 ID를 추가
+        // $validated['user_id'] = auth()->id(); // 현재 로그인한 사용자의 ID를 추가
         Streams::create($validated);
         // auth()->user()->posts()->create($validated);
 
